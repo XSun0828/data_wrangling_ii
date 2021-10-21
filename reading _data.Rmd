@@ -90,7 +90,6 @@ swm_df =
 ```
 
 
-
 ## Get some water data
 
 This is coming from an API
@@ -108,5 +107,16 @@ nyc_water =
   as_tibble()
 ```
 
+
+##BRFSS
+
+Same process, different data
+
+```{r}
+brfss_2010 = 
+  GET("https://chronicdata.cdc.gov/resource/acme-vg9e.csv",
+      query = list("$limit" = 5000)) %>% 
+  content("parsed")
+```
 
 
