@@ -86,7 +86,27 @@ swm_df =
   tibble(
     title = title_vec,
     gross_rev = gross_rev_vec,
-    runtime = runtime_vec
-  )
+    runtime = runtime_vec)
 ```
+
+
+
+## Get some water data
+
+This is coming from an API
+
+```{r}
+nyc_water = 
+  GET("https://data.cityofnewyork.us/resource/ia2d-e54m.csv") %>% 
+  content("parsed")
+
+
+nyc_water = 
+  GET("https://data.cityofnewyork.us/resource/ia2d-e54m.json") %>% 
+  content("text") %>% 
+  jsonlite::fromJSON() %>% 
+  as_tibble()
+```
+
+
 
